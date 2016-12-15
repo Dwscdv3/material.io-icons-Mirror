@@ -1,50 +1,66 @@
 <!DOCTYPE html>
-<!-- saved from url=(0026)https://material.io/icons/ -->
-<html itemscope="" itemtype="http://schema.org/WebSite"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style>template {display: none !important;} /* injected by platform.js */</style><style>body {transition: opacity ease-in 0.2s; } 
-body[unresolved] {opacity: 0; display: block; overflow: hidden; position: relative; } 
-</style>
-  
-  <title>Material icons - Material Design</title>
-  <meta name="description" content="Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects.">
+<html>
 
-  <!-- Schema.org markup -->
-  <meta itemprop="name" content="Material icons - Material Design">
-  <meta itemprop="description" content="Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects.">
-  <meta itemprop="image" content="https://material-icons.storage.googleapis.com/external-assets/v1/social.png">
-
-  <!-- Open Graph markup -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Material icons - Material Design">
-  <meta property="og:image" content="https://material-icons.storage.googleapis.com/external-assets/v1/social.png">
-  <meta property="og:description" content="Material icons are beautifully crafted, delightful, and easy to use in your web, Android, and iOS projects.">
-  <meta property="og:site_name" content="Material icons - Material Design">
-  <meta property="og:url" content="https://material.io/icons/">
-  <script async="" src="./Material icons - Material Design_files/analytics.js.下载"></script><script src="./Material icons - Material Design_files/webcomponents.min.js.下载"></script>
-
-  <!-- Components Specific To This App -->
-  <link href="./Material icons - Material Design_files/icon" rel="stylesheet">
-  <link href="./Material icons - Material Design_files/css" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="./Material icons - Material Design_files/index.css" shim-shadowdom="">
-  <link rel="import" href="./Material icons - Material Design_files/third-party.html">
-  <link rel="import" href="./Material icons - Material Design_files/first-party.html">
-
-  <style>[touch-action="none"]{ -ms-touch-action: none; touch-action: none;}
-html /deep/ [touch-action="none"]{ -ms-touch-action: none; touch-action: none;}
-[touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto;}
-html /deep/ [touch-action="auto"]{ -ms-touch-action: auto; touch-action: auto;}
-[touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x;}
-html /deep/ [touch-action="pan-x"]{ -ms-touch-action: pan-x; touch-action: pan-x;}
-[touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y;}
-html /deep/ [touch-action="pan-y"]{ -ms-touch-action: pan-y; touch-action: pan-y;}
-[touch-action="pan-x pan-y"],[touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}
-html /deep/ [touch-action="pan-x pan-y"],html /deep/ [touch-action="pan-y pan-x"]{ -ms-touch-action: pan-x pan-y; touch-action: pan-x pan-y;}
-[touch-action="manipulation"]{ -ms-touch-action: manipulation; touch-action: manipulation;}
-html /deep/ [touch-action="manipulation"]{ -ms-touch-action: manipulation; touch-action: manipulation;}
-</style>
+<head>
+    <title>Material Design Icons</title>
+    <meta charset="UTF-8">
+    <style>
+        @font-face {
+            font-family: 'Material Icons';
+            font-style: normal;
+            font-weight: 400;
+            src: local('Material Icons'), local('MaterialIcons-Regular'), url(/fonts/MaterialIcons-Regular.woff2) format('woff2'), url(/fonts/MaterialIcons-Regular.woff) format('woff'), url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
+        }
+        
+        icon {
+            font-family: 'Material Icons';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            /* Support for all WebKit browsers. */
+            -webkit-font-smoothing: antialiased;
+            /* Support for Safari and Chrome. */
+            text-rendering: optimizeLegibility;
+            /* Support for Firefox. */
+            -moz-osx-font-smoothing: grayscale;
+            /* Support for IE. */
+            font-feature-settings: 'liga';
+        }
+    </style>
 </head>
-<body fullbleed="">
-  <icons-internal-app></icons-internal-app>
 
+<body>
+    <script>
+        function ajaxGet(url, callback) {
+            var req = new XMLHttpRequest();
+            req.onreadystatechange = callback;
+            req.open("get", url);
+            req.send();
+        }
+        var data = null;
+        ajaxGet("data/grid.json", function () {
+            if (this.readyState == 4) {
+                data = JSON.parse(this.responseText);
+            }
+        });
+        for (var icon in data.icons) {
+            var div = document.createElement("div");
+            var icon = document.createElement("icon");
+            var ligature = document.createElement("span");
+            icon.appendChild(document.createTextNode(icon.ligature));
+            ligature.appendChild(document.createTextNode(icon.ligature));
+            div.appendChild(icon);
+            div.appendChild(ligature);
+            document.body.appendChild(div);
+        }
+    </script>
+</body>
 
-</body></html>
+</html>
