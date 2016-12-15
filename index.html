@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    <meta name="viewport" content="width=400, initial-scale=1">
     <title>Material Design Icons</title>
     <meta charset="UTF-8">
     <style>
@@ -11,8 +12,14 @@
             font-weight: 400;
             src: local('Material Icons'), local('MaterialIcons-Regular'), url(/fonts/MaterialIcons-Regular.woff2) format('woff2'), url(/fonts/MaterialIcons-Regular.woff) format('woff'), url(/fonts/MaterialIcons-Regular.ttf) format('truetype');
         }
+
+        html {
+            font-size: 16px;
+        }
         
         icon {
+            vertical-align: middle;
+            margin-right: 5px;
             font-family: 'Material Icons';
             font-weight: normal;
             font-style: normal;
