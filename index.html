@@ -48,12 +48,12 @@
         ajaxGet("data/grid.json", function () {
             if (this.readyState == 4) {
                 data = JSON.parse(this.responseText);
-                for (var icon in data.icons) {
+                for (var i = 0; i < data.icons.length; i++) {
                     var divElement = document.createElement("div");
                     var iconElement = document.createElement("icon");
                     var ligature = document.createElement("span");
-                    iconElement.appendChild(document.createTextNode(icon.ligature));
-                    ligature.appendChild(document.createTextNode(icon.ligature));
+                    iconElement.appendChild(document.createTextNode(data.icons[i].ligature));
+                    ligature.appendChild(document.createTextNode(data.icons[i].ligature));
                     divElement.appendChild(iconElement);
                     divElement.appendChild(ligature);
                     document.body.appendChild(divElement);
