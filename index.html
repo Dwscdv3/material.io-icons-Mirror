@@ -48,18 +48,18 @@
         ajaxGet("data/grid.json", function () {
             if (this.readyState == 4) {
                 data = JSON.parse(this.responseText);
+                for (var icon in data.icons) {
+                    var div = document.createElement("div");
+                    var icon = document.createElement("icon");
+                    var ligature = document.createElement("span");
+                    icon.appendChild(document.createTextNode(icon.ligature));
+                    ligature.appendChild(document.createTextNode(icon.ligature));
+                    div.appendChild(icon);
+                    div.appendChild(ligature);
+                    document.body.appendChild(div);
+                }
             }
         });
-        for (var icon in data.icons) {
-            var div = document.createElement("div");
-            var icon = document.createElement("icon");
-            var ligature = document.createElement("span");
-            icon.appendChild(document.createTextNode(icon.ligature));
-            ligature.appendChild(document.createTextNode(icon.ligature));
-            div.appendChild(icon);
-            div.appendChild(ligature);
-            document.body.appendChild(div);
-        }
     </script>
 </body>
 
